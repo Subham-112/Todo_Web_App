@@ -1,0 +1,89 @@
+import { useState } from "react";
+import "../../../Style/Dashboard/Content/Button.css";
+
+export default function Buttons({ onAdd }) {
+  let [btn, setbtn] = useState(false);
+  let [ inpVal, setInpVal ] = useState('');
+
+  function toggleBtn() {
+    setbtn(true);
+  }
+
+  function handleChange (e) {
+    setInpVal(e.target.value);
+  }
+
+  const handleSubmit = async (e) => {
+    if(e.key === 'Enter' && inpVal.trim() !== '') {
+      const newTask = {
+          title: inpVal.trim()
+      }
+      try {
+        const res = await fetch('http://localhost:1000/task', {
+          method: 'POST', 
+          headers: {
+            'Content-Type': 'application/json'
+          }, body: JSON.stringify(newTask)
+        });
+
+        const data = await res.json();
+        console.log('Response from backend: ', data);
+        onAdd(data.task)
+
+        if(data.success) {
+          console.log('Task added successfully:', data.task);
+        }
+
+      } catch (err) {
+        console.error('Error while adding task: ', err);
+      }
+      e.target.value='';
+    }
+  }
+
+  return (
+    <div className="btn-cont">
+      {!btn ? (
+        <div className="btns">
+          <button className="ad-tsk-btn al-bt" onClick={() => toggleBtn()}>
+            <img
+              width="40"
+              height="40"
+              src="https://img.icons8.com/scribby/100/FAB005/plus-2-math.png"
+              alt="plus-2-math"
+            />
+            Add Task
+          </button>
+          <a className="st-pl al-bt" href="/study-plan">
+            <img
+              width="40"
+              height="40"
+              src="https://img.icons8.com/plasticine/40/saving-book.png"
+              alt="saving-book"
+            />
+            Study Plan
+          </a>
+
+          <button className="sl-tsk al-bt">
+            <img
+              width="40"
+              height="40"
+              src="https://img.icons8.com/doodle/40/checked-checkbox.png"
+              alt="checked-checkbox"
+            />
+            Select Task
+          </button>
+        </div>
+      ) : (
+        <input 
+          name="title"
+          type="text"
+          className="ad-tsk-inp" 
+          placeholder="Enter Your Task"
+          onChange={handleChange}
+          onKeyDown={(e) => handleSubmit(e)}
+          autoFocus />
+      )}
+    </div>
+  );
+}

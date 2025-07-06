@@ -1,0 +1,40 @@
+#das-box {
+    height: 100dvh;
+    display: grid;
+    grid-template-columns: 25% 75%;
+}
+
+.nav-user {
+    position: absolute;
+    z-index: 1;
+    height: 100dvh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bg-blur {
+    backdrop-filter: blur(10px);
+}
+
+.empt {
+    border: 2px solid white;
+    height: 100px;
+    width: 100px;
+    background-color: aqua;
+    position: absolute;
+    z-index: 1;
+}
+
+.das-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.das-cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

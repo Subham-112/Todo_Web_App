@@ -1,0 +1,41 @@
+.btns .al-bt {
+  background-color: #00ccff;
+  color: white;
+  font-family: 'Comic Neue', cursive;
+  font-size: 1.2rem;
+  font-style: italic;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 0.4rem 1rem;
+  border: 3px solid black;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: -3px 3px 0px black, -2px 2px 0px #111;
+  transition: 0.2s ease;
+}
+
+.btns .al-bt:hover {
+  transform: translate(-2px, 2px);
+  box-shadow: 
+    -1px 1px 0px black,
+    -2px 2px 0px #111;
+}
+
+.ad-tsk-inp {
+  height: 60px;
+  width: 90%;
+  border: 3px solid white;
+  border-radius: 20px;
+  outline: none;
+  caret-color: black;
+  font-size: 1.3rem;
+  background-color: rgba(255, 255, 255, 0.163);
+  text-align: center;
+}
+
+.ad-tsk-inp::placeholder {
+  color: rgb(235, 235, 235);
+}

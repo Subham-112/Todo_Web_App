@@ -1,0 +1,111 @@
+#nav {
+    /* display: none; */
+    height: 97%;
+    width: 95%;
+    border: 3px solid rgba(255, 255, 255, 0.545);
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    /* transition: all 0.5s ease-in; */
+}
+
+.hide-nav {
+    display: none;
+}
+
+.cls-nav {
+    animation: close 0.3s ease forwards;
+}
+
+.opn-nav {          /* re‑opens */
+  animation: open  0.3s ease forwards;
+}
+
+@keyframes close {
+  to {
+    transform: translate(-1.5rem);
+    opacity: 0;
+  }
+}
+
+@keyframes open {
+  from { transform: translateX(-1.5rem); opacity: 0; }
+  to   { transform: translateX(0);        opacity: 1; }
+}
+
+.opn-nav {
+    display: none;
+}
+
+.dsh-lg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    margin-left: -15px;
+}
+
+.lo {
+    width: 80%;
+    border: 3px solid rgb(255, 255, 255);
+    border-radius: 50px;
+    background-color: rgb(255, 255, 255);
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.nv {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.nv ul {
+    margin: 0;
+}
+
+.nv ul li {
+    list-style: none;
+    margin-bottom: 10px;
+}
+
+.nv ul li a {
+    color: white;
+    font-size: 1.3rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 1rem;
+}
+
+.nv ul .oth {
+    width: 160%;
+    border: 3px solid rgb(255, 255, 255);
+    border-radius: 50px;
+    margin: 20px 0 10px 0;
+}
+
+.my-ac {
+    /* width: 185px; */
+    border: none;
+    font-size: 1.25rem;
+    background-color: transparent;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 0.5rem;
+    margin-left: 0.5rem;
+    cursor: pointer;
+}
+
+.my-ac img {
+    /* margin-left: -18px; */
+    margin-right: 12px;
+}
+
+.my-ac p {
+    font-size: large;
+    margin: 0;
+    /* margin-left: 20px; */
+}

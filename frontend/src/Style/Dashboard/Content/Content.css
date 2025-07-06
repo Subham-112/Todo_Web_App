@@ -1,0 +1,81 @@
+#content {
+    height: 97%;
+    width: 98%;
+    border: 3px solid rgba(255, 255, 255, 0.545);
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+hr {
+    width: 93%;
+    border: 3px solid rgb(255, 255, 255);
+    margin: 0 auto;
+}
+
+.con {
+    display: flex;
+    flex-direction: column;
+}
+
+.sec_i {
+    /* border: 2px solid white; */
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sec_i span {
+    /* border: 2px solid white; */
+    height: 80%;
+    width: 93%;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.sec_ii {
+    /* border: 2px solid white; */
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sec_ii div {
+    height: 480px;
+    width: 93%;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    overflow: auto;
+}
+
+.sec_iii {
+    /* border: 2px solid white; */
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sec_iii .btn-cont {
+    /* border: 2px solid white; */
+    height: 90%;
+    width: 93%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.sec_iii .btn-cont .btns {
+    /* border: 2px solid white; */
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: -10px;
+}

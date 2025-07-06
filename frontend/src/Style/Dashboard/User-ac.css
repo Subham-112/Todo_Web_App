@@ -1,0 +1,174 @@
+#us-ac {
+    height: 97%;
+    width: 55%;
+    border: 3px solid rgba(255, 255, 255, 0.545);
+    border-radius: 20px;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.hide-nav {
+    /* display: flex; */
+    position: absolute;
+    background-color: aqua;
+}
+
+.user-ic {
+    width: 100%;
+    height: 35%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.user-ic img {
+    height: 250px;
+    margin-bottom: -3rem;
+    margin-top: -2rem;
+}
+
+.user-ic p {
+    color: yellow;
+    text-shadow: 0px 0px 10px black;
+    font-size: 1.5rem;
+    margin: 0;
+    margin-top: -5px;
+}
+
+.user-opt {
+    height: 70%;
+    width: 80%;
+    position: relative;
+    padding: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+}
+
+.user-opt .nm {
+    border: 4px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+    padding-left: 1rem;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.user-opt .nm:hover {
+    box-shadow: 0px 0px 15px 2px yellow;
+}
+
+.nm img {
+    filter: drop-shadow(3px 3px 5px rgba(0, 0, 0, 0.6));
+}
+
+.nm p {
+    font-size: 1.3rem;
+    text-shadow: 3px 3px 10px black;
+}
+
+.cls {
+    width: 100%;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 3px 5px 30px 5px rgba(0, 0, 0, 0.7);
+    background-color: #00ccff;
+    position: absolute;
+    bottom: 50px;
+    padding: 0.7rem 0;
+}
+
+.cls:active {
+    background-color: yellow;
+}
+
+/* Animation */
+
+#us-ac {
+    animation: compUp 0.8s ease-in-out forwards;
+}
+
+@keyframes compUp {
+    from {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.user-ic img {
+    animation: imgAnime 2s ease 0.1s forwards;
+}
+
+@keyframes imgAnime {
+    from {
+        transform: translateX(-3rem) rotateZ(-30deg);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0) rotateZ(0deg);
+        opacity: 1;
+    }
+}
+
+.user-ic p {
+    animation: nameAnime 2s ease 0.1s forwards;
+}
+
+@keyframes nameAnime {
+    from {
+        transform: translateX(3rem);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.user-opt .an {
+    animation: btnAnime 2s ease 0.1s forwards;
+}
+
+@keyframes btnAnime {
+    from {
+        transform: translateX(2rem);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    
+}
+
+.user-opt .ani {
+    animation: btnAnime2 2s ease 0.1s forwards;
+}
+
+@keyframes btnAnime2 {
+    from {
+        transform: translateX(-2rem);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    
+}
