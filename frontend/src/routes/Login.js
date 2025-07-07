@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { successMsg } from "../utils";
+import { errorMsg, successMsg } from "../utils";
 
 export default function Login() {
   let [loginInfo, setLoginInfo] = useState({
-    email: '',
-    password: ''
+    email: "",
+    password: "",
   });
 
   const navigate = useNavigate();
@@ -19,34 +19,33 @@ export default function Login() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(loginInfo)
+        body: JSON.stringify(loginInfo),
       });
 
       const data = await res.json();
-      console.log('Response from backend:', data);
+      console.log("Response from backend:", data);
 
       const { success, error, token, message, user } = data;
-      if(success) {
-        localStorage.setItem('Jwt_Token', token);
-        localStorage.setItem('User', user.username);
-        console.log('Login successful', message);
-        successMsg(`Login successful. Welcome ${user.username}`)
+      if (success) {
+        localStorage.setItem("Jwt_Token", token);
+        localStorage.setItem("User", user.username);
+        console.log("Login successful", message);
+        successMsg(`Login successful. Welcome ${user.username}`);
         setTimeout(() => {
-          navigate('/dashboard');
-        }, 1000)
+          navigate("/dashboard");
+        }, 1000);
       } else if (error) {
-        console.error('Some error occures', error);
+        errorMsg(error?.details[0].message);
       }
-    } catch ( err ) {
-      console.error('Internal server problem', err);
+    } catch (err) {
+      console.error("Internal server problem", err);
     }
-
   };
 
   const handlChange = (e) => {
-    const { name, value } = e.target
-    setLoginInfo(prev => ({ ...prev, [name]: value }))
-  }
+    const { name, value } = e.target;
+    setLoginInfo((prev) => ({ ...prev, [name]: value }));
+  };
 
   return (
     <div id="sign">

@@ -33,13 +33,11 @@ export default function Signup() {
       });
 
       const data = await res.json();
-      console.log("Response from backend: ", data);
 
       const { token, message, error, success, user } = data;
       if(success) {
         localStorage.setItem('Jwt_Token', token);
         localStorage.setItem('User', user.username);
-        console.log('Login successful', message);
 
         successMsg(`Signup successful. Welcome ${user.username}`);
         setTimeout(() => {
@@ -49,7 +47,7 @@ export default function Signup() {
       } 
       
       else if (error) {
-        console.error(error?.details[0].message);
+        errorMsg(error?.details[0].message);
       }
       
       else if (!success) {

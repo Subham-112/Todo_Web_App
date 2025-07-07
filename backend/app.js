@@ -7,6 +7,7 @@ const User = require("./models/User");
 const Task = require('./models/data')
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const { signupValidation, loginValidation } = require("./middlewares/authValidation");
 
 const app = Express();
 app.use(cors());
@@ -24,7 +25,7 @@ app.post('/dashboard', async (req, res) => {
   console.log(Task);
 })
 
-app.post("/signup", async (req, res) => {
+app.post("/signup", signupValidation, async (req, res) => {
   const { username, email, password } = req.body;
 
   try {
@@ -63,7 +64,7 @@ app.post("/signup", async (req, res) => {
   }
 });
 
-app.post("/login", async (req, res) => {
+app.post("/login", loginValidation, async (req, res) => {
   const { email, password } = req.body;
 
   try {
