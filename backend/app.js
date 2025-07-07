@@ -61,6 +61,49 @@ app.post("/signup", async (req, res) => {
   }
 });
 
+app.post("/login", async (req, res) => {
+  const { email, password } = req.body;
+
+  try {
+    const existUser = await User.findOne({ email });
+    if(!existUser) return res.status(400).json({ message: "User not exists. Signup instead." })
+
+    const isPassCorrect = await bcrypt.compare(password, existUser.password);
+    if(!isPassCorrect) {
+      return res.status(403)
+        .json({
+          message: "Incorrect Password",
+          success: false
+        });
+    }
+
+    const token = jwt.sign(
+      { id: existUser._id, email: existUser.email }, 
+      process.env.JWT_SECRET, 
+      { expiresIn: "30d" }
+    );
+
+    res
+      .status(201)
+      .json({
+        message: 'Login successful',
+        success: true,
+        token,
+        user: {
+          id: existUser._id,
+          username: existUser.username,
+          email: existUser.email
+        },
+      });
+  } catch (err) {
+    res.status(400)
+      .json({
+        message: "Internal server error",
+        error: err.message
+      });
+  }
+});
+
 app.post('/task', async (req, res) => {
   const { title, starred, isComp } = req.body;
 
