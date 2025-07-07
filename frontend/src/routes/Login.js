@@ -1,8 +1,66 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { successMsg } from "../utils";
+
 export default function Login() {
+  let [loginInfo, setLoginInfo] = useState({
+    email: '',
+    password: ''
+  });
+
+  const navigate = useNavigate();
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    try {
+      const res = await fetch("http://localhost:1000/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(loginInfo)
+      });
+
+      const data = await res.json();
+      console.log('Response from backend:', data);
+
+      const { success, error, token, message, user } = data;
+      if(success) {
+        localStorage.setItem('Jwt_Token', token);
+        localStorage.setItem('User', user.username);
+        console.log('Login successful', message);
+        successMsg(`Login successful. Welcome ${user.username}`)
+        setTimeout(() => {
+          navigate('/dashboard');
+        }, 1000)
+      } else if (error) {
+        console.error('Some error occures', error);
+      }
+    } catch ( err ) {
+      console.error('Internal server problem', err);
+    }
+
+  };
+
+  const handlChange = (e) => {
+    const { name, value } = e.target
+    setLoginInfo(prev => ({ ...prev, [name]: value }))
+  }
+
   return (
     <div id="sign">
-      <form>
-        <h1>
+      <form
+        style={{
+          height: "70%",
+        }}
+        onSubmit={handleLogin}
+      >
+        <h1
+          style={{
+            marginBottom: "2rem",
+          }}
+        >
           <img
             width="55"
             height="55"
@@ -22,7 +80,17 @@ export default function Login() {
           />
           Email
         </label>
-        <input name="email" type="text" placeholder="Enter Your Email" />
+        <input
+          name="email"
+          type="text"
+          placeholder="Enter Your Email"
+          style={{
+            height: "60px",
+            marginBottom: "1rem",
+          }}
+          onChange={handlChange}
+          value={loginInfo.email}
+        />
 
         <label htmlFor="password">
           <img
@@ -33,10 +101,25 @@ export default function Login() {
           />
           Password
         </label>
-        <input name="password" type="password" placeholder="Your Password" />
+        <input
+          name="password"
+          type="password"
+          placeholder="Your Password"
+          style={{
+            height: "60px",
+            marginBottom: "1.5rem",
+          }}
+          onChange={handlChange}
+          value={loginInfo.password}
+        />
 
         <span>
-          <button>
+          <button
+            style={{
+              marginBottom: "0.4rem",
+            }}
+            onClick={handleLogin}
+          >
             <img
               width="35"
               height="35"
