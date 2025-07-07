@@ -7,7 +7,7 @@ const User = require("./models/User");
 const Task = require('./models/data')
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const { signupValidation, loginValidation } = require("./middlewares/authValidation");
+const { signupValidation, loginValidation, verifyToken } = require("./middlewares/authValidation");
 
 const app = Express();
 app.use(cors());
@@ -196,7 +196,11 @@ app.delete('/task/:id', async (req, res) => {
       })
   }
 
-})
+});
+
+app.get('/dashboard', verifyToken, (req, res) => {
+  res.status(200).json({ message: "Welcome to your Dashboard" })
+});
 
 app.listen(1000, () => {
   console.log("🚀 Server is started on port 1000");
