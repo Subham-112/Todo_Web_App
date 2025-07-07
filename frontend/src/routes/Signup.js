@@ -1,10 +1,69 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import "../Style/Signup.css";
+import { errorMsg, successMsg } from "../utils";
 
 export default function Signup() {
+  let [ signupInfo, setSinupInfo ] = useState({
+    username: '',
+    email: '',
+    password: ''
+  });
+
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setSinupInfo({ ...signupInfo, [name]: value })
+  }
+
+  const handleSignup = async (e) => {
+    e.preventDefault()
+
+    const { username, email, password } = signupInfo;
+    if( !username || !email || !password ) return errorMsg('All fields are required');
+
+    try {
+      const res = await fetch('http://localhost:1000/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        }, body: JSON.stringify(signupInfo)
+      });
+
+      const data = await res.json();
+      console.log("Response from backend: ", data);
+
+      const { token, message, error, success, user } = data;
+      if(success) {
+        localStorage.setItem('Jwt_Token', token);
+        localStorage.setItem('User', user.username);
+        console.log('Login successful', message);
+
+        successMsg(`Signup successful. Welcome ${user.username}`);
+        setTimeout(() => {
+          navigate('/dashboard');
+        }, 1000)
+
+      } 
+      
+      else if (error) {
+        console.error(error?.details[0].message);
+      }
+      
+      else if (!success) {
+        errorMsg(message);
+      }
+    
+    } catch (err) {
+      console.error("Internal server problem", err);
+    }
+  }
 
   return (
     <div id="sign">
-      <form>
+      <form onSubmit={handleSignup}> 
         <h1>
           <img
             width="55"
@@ -30,6 +89,7 @@ export default function Signup() {
           name="username"
           type="text"
           placeholder="Enter Your Username"
+          onChange={handleChange}
         />
         
         <label htmlFor="email">
@@ -45,6 +105,7 @@ export default function Signup() {
           name="email"
           type="text"
           placeholder="Enter Your Email"
+          onChange={handleChange}
         />
 
         <label htmlFor="password">
@@ -60,10 +121,11 @@ export default function Signup() {
           name="password"
           type="password"
           placeholder="Your Password"
+          onChange={handleChange}
         />
 
         <span>
-          <button type="submit">
+          <button type="submit" onClick={handleSignup}>
             <img
               width="35"
               height="35"
