@@ -31,10 +31,23 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    animation: comeUp 1s ease-in-out forwards;
 }
 
 .das-cont {
     display: flex;
     justify-content: center;
     align-items: center;
+    animation: comeUp 1s ease-in-out forwards;
+}
+
+@keyframes comeUp {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
 }

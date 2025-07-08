@@ -1,11 +1,21 @@
 #nav {
-    /* display: none; */
     height: 97%;
     width: 95%;
     border: 3px solid rgba(255, 255, 255, 0.545);
     border-radius: 20px;
     background-color: rgba(255, 255, 255, 0.1);
-    /* transition: all 0.5s ease-in; */
+    animation: clipReveal 1.5s ease-in-out forwards;
+}
+
+@keyframes clipReveal {
+  0% {
+    clip-path: inset(0 0 100% 0);
+    opacity: 0;
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
 }
 
 .hide-nav {
@@ -16,7 +26,7 @@
     animation: close 0.3s ease forwards;
 }
 
-.opn-nav {          /* re‑opens */
+.opn-nav {
   animation: open  0.3s ease forwards;
 }
 
@@ -66,6 +76,18 @@
 .nv ul li {
     list-style: none;
     margin-bottom: 10px;
+    animation: revealX 1.5s ease-in-out 0.3s forwards;
+}
+
+@keyframes revealX {
+    0% {
+        clip-path: inset(0 100% 0 0);
+        opacity: 0;
+    }
+    100% {
+        clip-path: inset(0 0 0 0);
+        opacity: 1;
+    }
 }
 
 .nv ul li a {

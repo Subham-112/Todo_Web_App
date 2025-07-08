@@ -9,6 +9,7 @@ export default function Date() {
           alt="calendar--v1"
         />
       </h1>
+      <input type="date" />
     </span>
   );
 }

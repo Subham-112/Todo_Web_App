@@ -1,0 +1,43 @@
+.lg-txt {
+    display: flex;
+    align-items: center;
+}
+
+.point {
+    animation: upDown 2s ease infinite;
+}
+
+@keyframes upDown {
+    0% {
+        transform: translateY(-10px);
+    }
+    50% {
+        transform: translateY(10px);
+    }
+    100% {
+        transform: translateY(-10px);
+    }
+}
+
+.frm-dv {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+}
+
+form {
+    animation: formAppear 1s ease-in forwards;
+    /* width: 50%; */
+}
+
+@keyframes formAppear {
+    0% {
+        transform: scale(1.1);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
