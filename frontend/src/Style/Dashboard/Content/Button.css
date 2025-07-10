@@ -1,4 +1,4 @@
-.btns .al-bt {
+.btn-cont .al-bt {
   background-color: #00ccff;
   color: white;
   font-family: 'Comic Neue', cursive;
@@ -13,11 +13,11 @@
   align-items: center;
   gap: 8px;
   cursor: pointer;
-  box-shadow: -3px 3px 0px black, -2px 2px 0px #111;
+  box-shadow: -3px 3px 0px black, -3px 3px 0px #111;
   transition: 0.2s ease;
 }
 
-.btns .al-bt:hover {
+.btn-cont .al-bt:hover {
   transform: translate(-2px, 2px);
   box-shadow: 
     -1px 1px 0px black,
@@ -34,6 +34,18 @@
   font-size: 1.3rem;
   background-color: rgba(255, 255, 255, 0.163);
   text-align: center;
+  animation: showRight 2s ease-in-out forwards;
+}
+
+@keyframes showRight {
+  from {
+    clip-path: inset(0 100% 0 0);
+    opacity: 0;
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
 }
 
 .ad-tsk-inp::placeholder {

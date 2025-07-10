@@ -4,6 +4,7 @@ import "../../../Style/Dashboard/Content/Button.css";
 export default function Buttons({ onAdd }) {
   let [btn, setbtn] = useState(false);
   let [ inpVal, setInpVal ] = useState('');
+  let [ animation, setAnimation ] = useState(false)
 
   function toggleBtn() {
     setbtn(true);
@@ -38,14 +39,17 @@ export default function Buttons({ onAdd }) {
         console.error('Error while adding task: ', err);
       }
       e.target.value='';
+    } else if (e.key === 'Escape') {
+      setbtn(false)
     }
   }
 
   return (
     <div className="btn-cont">
       {!btn ? (
-        <div className="btns">
-          <button className="ad-tsk-btn al-bt" onClick={() => toggleBtn()}>
+          <button 
+            className='al-bt'
+            onClick={() => toggleBtn()}>
             <img
               width="40"
               height="40"
@@ -54,26 +58,6 @@ export default function Buttons({ onAdd }) {
             />
             Add Task
           </button>
-          <a className="st-pl al-bt" href="/study-plan">
-            <img
-              width="40"
-              height="40"
-              src="https://img.icons8.com/plasticine/40/saving-book.png"
-              alt="saving-book"
-            />
-            Study Plan
-          </a>
-
-          <button className="sl-tsk al-bt">
-            <img
-              width="40"
-              height="40"
-              src="https://img.icons8.com/doodle/40/checked-checkbox.png"
-              alt="checked-checkbox"
-            />
-            Select Task
-          </button>
-        </div>
       ) : (
         <input 
           name="title"
@@ -81,7 +65,9 @@ export default function Buttons({ onAdd }) {
           className="ad-tsk-inp" 
           placeholder="Enter Your Task"
           onChange={handleChange}
-          onKeyDown={(e) => handleSubmit(e)}
+          onKeyDown={(e) => {
+            handleSubmit(e)
+          }}
           autoFocus />
       )}
     </div>

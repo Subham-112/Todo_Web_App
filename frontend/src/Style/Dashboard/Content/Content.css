@@ -62,20 +62,9 @@ hr {
 }
 
 .sec_iii .btn-cont {
-    /* border: 2px solid white; */
     height: 90%;
     width: 93%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    margin-top: 10px;
-}
-
-.sec_iii .btn-cont .btns {
-    /* border: 2px solid white; */
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: -10px;
 }
