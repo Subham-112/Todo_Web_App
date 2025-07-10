@@ -94,7 +94,8 @@ export default function DashboardContent() {
   return (
     <div id="content">
       <div className="sec_i con">
-        <Date />
+        <Date 
+          task={tasks}/>
       </div>
       <hr />
       <div className="sec_ii con">
