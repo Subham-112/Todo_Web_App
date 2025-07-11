@@ -1,7 +1,7 @@
 import '../../../Style/Dashboard/Content/date.css'
 import { useState } from 'react';
 
-export default function Date({ task }) {
+export default function Date({  }) {
   let [ dateVal, setDateVal ] = useState({
     date: ''
   })
