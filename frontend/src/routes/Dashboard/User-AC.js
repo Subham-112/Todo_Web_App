@@ -66,7 +66,7 @@ export default function UserAC({ hidNav, isHideNav }) {
           <p>Log out</p>
         </span>
 
-        <button className="cls" onClick={hidNav}>Close</button>
+        <button className="cls" onClick={() => hidNav("Account")}>Close</button>
       </div>
     </div>
   );

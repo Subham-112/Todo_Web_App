@@ -1,20 +1,17 @@
-import dayJs from 'dayjs';
-
 import '../../../Style/Dashboard/Content/date.css'
 import { useState } from 'react';
 
 export default function Date({ task }) {
   let [ dateVal, setDateVal ] = useState({
-    date: Number
+    date: ''
   })
 
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    setDateVal((prev) => {
-      const updVal = { ...prev, [name]: value }
-      console.log(updVal)
-    })
+    setDateVal((prev) => (
+      { ...prev, [name]: value }
+    ))
   }
 
   return (

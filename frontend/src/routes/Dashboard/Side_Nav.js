@@ -1,7 +1,7 @@
 import "../../Style/Dashboard/Dash-Nav.css";
 
 export default function DashboardNav({ hidNav, navAnimeVal, theNavAnimeFunc }) { 
-  
+
   return (
     <div id="nav" >
       <span className="logo dsh-lg">
@@ -28,7 +28,7 @@ export default function DashboardNav({ hidNav, navAnimeVal, theNavAnimeFunc }) {
             </a>
           </li>
           <li>
-            <a href="/dashboard/today" >
+            <button onClick={(e) => hidNav("Today")}>
               <img
                 width="35"
                 height="35"
@@ -36,7 +36,7 @@ export default function DashboardNav({ hidNav, navAnimeVal, theNavAnimeFunc }) {
                 alt="today"
               />
               Today
-            </a>
+            </button>
           </li>
           <li>
             <a href="/dashboard/tomorrow">
@@ -134,14 +134,14 @@ export default function DashboardNav({ hidNav, navAnimeVal, theNavAnimeFunc }) {
             </a>
           </li>
           <li>
-            <button className="my-ac" onClick={hidNav}>
+            <button className="my-ac" onClick={() => hidNav("Account")}>
               <img
                 width="35"
                 height="35"
                 src="https://img.icons8.com/material-sharp/24/user-male-circle.png"
                 alt="user-male-circle"
               />
-              <p>My Account</p>
+              <p>Account</p>
             </button>
           </li>
         </ul>

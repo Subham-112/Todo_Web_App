@@ -1,24 +1,21 @@
-import ContentHooks from "../../../hooks/contentHooks";
-import Buttons from "./Button";
-import Date from "./Date";
-import TaskList from "./Task_list";
-import "../../../Style/Dashboard/Content/Content.css";
+import ContentHooks from "../../hooks/contentHooks";
+import Date from "../Dashboard/Content_Sec/Date";
+import TaskList from "../Dashboard/Content_Sec/Task_list";
 
-export default function DashboardContent() {
+export default function TodayContent({ hidNav }) {
   const { 
     tasks,
     addTaskLocally,
     handleStar, 
-    handleTskComp, 
+    handleTskComp,
     handleDltTask 
   } = ContentHooks();
 
   return (
-    <div id="content">
+    <div id="content" className="today-cont">
       <div className="sec_i con">
         <Date task={tasks} />
       </div>
-      <hr />
       <div className="sec_ii con">
         <TaskList
           task={tasks}
@@ -27,10 +24,8 @@ export default function DashboardContent() {
           deleteOpr={handleDltTask}
         />
       </div>
-      <hr />
-      <div className="sec_iii con">
-        <Buttons onAdd={addTaskLocally} />
-      </div>
+      
+      <button onClick={() => hidNav("Today")}>Close</button>
     </div>
   );
 }
