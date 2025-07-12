@@ -91,21 +91,25 @@
     }
 }
 
-.nv ul li a {
-    color: white;
-    font-size: 1.3rem;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-left: 1rem;
-}
-
 .nv ul .oth {
     width: 160%;
     border: 3px solid rgb(255, 255, 255);
     border-radius: 50px;
     margin: 20px 0 10px 0;
+}
+
+.sd-btn {
+    border: none;
+    font-size: 1.25rem;
+    background-color: transparent;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.7rem;
+    padding-left: 0.5rem;
+    margin-left: 0.7rem;
+    cursor: pointer;
 }
 
 .my-ac {

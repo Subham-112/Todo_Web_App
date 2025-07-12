@@ -17,7 +17,7 @@ export default function DashboardNav({ hidNav, navAnimeVal, theNavAnimeFunc }) {
       <nav className="nv">
         <ul>
           <li>
-            <a href="/dashboard/allday">
+            <button className="sd-btn" >
               <img
                 width="35"
                 height="35"
@@ -25,21 +25,22 @@ export default function DashboardNav({ hidNav, navAnimeVal, theNavAnimeFunc }) {
                 alt="external-business-business-blue-others-phat-plus-13"
               />
               All Day
-            </a>
-          </li>
-          <li>
-            <button onClick={(e) => hidNav("Today")}>
-              <img
-                width="35"
-                height="35"
-                src="https://img.icons8.com/arcade/64/today.png"
-                alt="today"
-              />
-              Today
             </button>
           </li>
           <li>
-            <a href="/dashboard/tomorrow">
+            <button className="sd-btn" onClick={(e) => hidNav("Today")}>
+              <img
+                width="40"
+                height="40"
+                src="https://img.icons8.com/arcade/64/today.png"
+                alt="today"
+                style={{marginLeft: '-3px'}}
+              />
+              <p style={{margin: 0, fontSize: '1.3rem', marginLeft: '-3px'}}>Today</p>
+            </button>
+          </li>
+          <li>
+            <button className="sd-btn" >
               <img
                 width="35"
                 height="35"
@@ -47,10 +48,10 @@ export default function DashboardNav({ hidNav, navAnimeVal, theNavAnimeFunc }) {
                 alt="tomorrow"
               />
               Tomorrow
-            </a>
+            </button>
           </li>
           <li>
-            <a href="/dashboard/nxt_7_days">
+            <button className="sd-btn" >
               <img
                 width="35"
                 height="35"
@@ -58,14 +59,14 @@ export default function DashboardNav({ hidNav, navAnimeVal, theNavAnimeFunc }) {
                 alt="calendar-7"
               />
               Next 7 days
-            </a>
+            </button>
           </li>
           <hr className="oth" />
         </ul>
         <ul>
           <b style={{ fontSize: 30, marginLeft: 20 }}>Lists</b>
           <li>
-            <a href="/dashboard/work">
+            <button className="sd-btn" >
               <img
                 width="35"
                 height="35"
@@ -73,10 +74,10 @@ export default function DashboardNav({ hidNav, navAnimeVal, theNavAnimeFunc }) {
                 alt="briefcase-emoji"
               />
               Work
-            </a>
+            </button>
           </li>
           <li>
-            <a href="/dashboard/freelance">
+            <button className="sd-btn" >
               <img
                 width="35"
                 height="35"
@@ -84,10 +85,10 @@ export default function DashboardNav({ hidNav, navAnimeVal, theNavAnimeFunc }) {
                 alt="external-freelance-gig-economy-flaticons-lineal-color-flat-icons-2"
               />
               Freelance
-            </a>
+            </button>
           </li>
           <li>
-            <a href="/dashboard/workout">
+            <button className="sd-btn" >
               <img
                 width="35"
                 height="35"
@@ -95,10 +96,10 @@ export default function DashboardNav({ hidNav, navAnimeVal, theNavAnimeFunc }) {
                 alt="deadlift--v1"
               />
               Workout
-            </a>
+            </button>
           </li>
           <li>
-            <a href="/dashboard/learning">
+            <button className="sd-btn" >
               <img
                 width="35"
                 height="35"
@@ -106,10 +107,10 @@ export default function DashboardNav({ hidNav, navAnimeVal, theNavAnimeFunc }) {
                 alt="learning"
               />
               Learning
-            </a>
+            </button>
           </li>
           <li>
-            <a href="/dashboard/reading">
+            <button className="sd-btn" >
               <img
                 width="35"
                 height="35"
@@ -117,13 +118,13 @@ export default function DashboardNav({ hidNav, navAnimeVal, theNavAnimeFunc }) {
                 alt="reading"
               />
               Reading
-            </a>
+            </button>
           </li>
           <hr className="oth" style={{ width: "185%", margin: "20px 0" }} />
         </ul>
         <ul>
           <li>
-            <a href="/dashboard/setting">
+            <button className="sd-btn" >
               <img
                 width="35"
                 height="35"
@@ -131,7 +132,7 @@ export default function DashboardNav({ hidNav, navAnimeVal, theNavAnimeFunc }) {
                 alt="settings"
               />
               Setting
-            </a>
+            </button>
           </li>
           <li>
             <button className="my-ac" onClick={() => hidNav("Account")}>
