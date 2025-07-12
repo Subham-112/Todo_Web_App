@@ -3,7 +3,7 @@ import "../../../Style/Dashboard/Content/Task-list.css";
 export default function TaskList({ task, starToggle, isTskComp, deleteOpr }) {
 
   return (
-    <div>
+    <div className="tsk-list">
       {task.length === 0 ? (
         <h2>No tasks added yet 💤</h2>
       ) : (
@@ -16,7 +16,7 @@ export default function TaskList({ task, starToggle, isTskComp, deleteOpr }) {
                   {
                     border: '4px solid rgba(0, 255, 98, 0.75)',
                     backgroundColor: 'rgba(0, 255, 98, 0.3)'
-                  } : null 
+                  } : null
               }>
               <span className="chk-bx">
                 <input type="checkbox" />

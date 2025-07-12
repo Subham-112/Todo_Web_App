@@ -8,9 +8,9 @@ export default function DashboardContent() {
   const { 
     tasks,
     addTaskLocally,
-    handleStar, 
-    handleTskComp, 
-    handleDltTask 
+    handleStar,
+    handleTskComp,
+    handleDltTask
   } = ContentHooks();
 
   return (

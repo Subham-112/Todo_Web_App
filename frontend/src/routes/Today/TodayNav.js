@@ -9,7 +9,7 @@ export default function TodayNav() {
             src="https://img.icons8.com/arcade/64/today.png"
             alt="today"
           />
-          <p>Today</p>
+          <p style={{fontSize: '2.5rem'}}>Today</p>
         </h1>
       </span>
       <hr style={{ width: "80%" }} />
