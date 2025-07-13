@@ -14,13 +14,15 @@ export default function TodayTaskInp() {
         height="55"
         src="https://img.icons8.com/color/48/overtime.png"
         alt="overtime"
+        style={{ cursor: 'pointer' }}
       />
       <img
-        title="Schedule"
+        title="Reminder"
         width="50"
         height="50"
         src="https://img.icons8.com/dusk/64/appointment-reminders--v1.png"
         alt="overtime"
+        style={{ cursor: 'pointer' }}
       />
     </div>
   );

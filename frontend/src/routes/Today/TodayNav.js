@@ -4,12 +4,12 @@ export default function TodayNav() {
       <span className="tod-nav-lg">
         <h1>
           <img
-            width="55"
-            height="55"
+            width="50"
+            height="50"
             src="https://img.icons8.com/arcade/64/today.png"
             alt="today"
           />
-          <p style={{fontSize: '2.5rem'}}>Today</p>
+          <p style={{ fontSize: "2.5rem" }}>Today</p>
         </h1>
       </span>
       <hr style={{ width: "80%" }} />
@@ -19,79 +19,79 @@ export default function TodayNav() {
           <li>
             <button>
               <img
-                width="40"
-                height="40"
+                width="45"
+                height="45"
                 src="https://img.icons8.com/plasticine/100/FA5252/army-star.png"
                 alt="army-star"
               />
-              Important Task
+              <p>Important Task</p>
             </button>
           </li>
           <li>
             <button>
               <img
-                width="40"
-                height="40"
+                width="45"
+                height="45"
                 src="https://img.icons8.com/matisse/100/FA5252/time.png"
                 alt="army-star"
               />
-              Schedule Task
+              <p>Schedule Task</p>
             </button>
           </li>
-          <hr style={{ width: "90%", marginLeft: '-0.1rem' }} />
+          <hr style={{ width: "90%", marginLeft: "-0.1rem" }} />
           <li>
             <button>
               <img
-                width="40"
-                height="40"
+                width="45"
+                height="45"
                 src="https://img.icons8.com/3d-fluency/94/reading.png"
                 alt="army-star"
               />
-              Study Plan
+              <p>Study Plan</p>
             </button>
           </li>
           <li>
             <button>
               <img
-                width="40"
-                height="40"
+                width="45"
+                height="45"
                 src="https://img.icons8.com/matisse/100/dumbbell.png"
                 alt="army-star"
               />
-              Work Plan
+              <p>Workout Plan</p>
             </button>
           </li>
           <li>
             <button>
               <img
-                width="40"
-                height="40"
-                src="https://img.icons8.com/plasticine/100/FA5252/army-star.png"
-                alt="army-star"
+                width="45"
+                height="45"
+                src="https://img.icons8.com/color/45/office.png"
+                alt="office"
               />
-              Workout Plan
+              <p>Work Plan</p>
             </button>
           </li>
           <li>
             <button>
               <img
-                width="40"
-                height="40"
+                width="45"
+                height="45"
                 src="https://img.icons8.com/dusk/64/task.png"
                 alt="army-star"
               />
-              Study Notes
+              <p>Study Notes</p>
             </button>
           </li>
           <li>
             <button>
               <img
-                width="40"
-                height="40"
+                width="45"
+                height="45"
                 src="https://img.icons8.com/3d-fluency/94/journal.png"
                 alt="army-star"
               />
-              Learning Dairy
+              <p>Learning Dairy</p>
             </button>
           </li>
         </ul>
