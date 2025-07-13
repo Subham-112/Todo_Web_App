@@ -1,7 +1,6 @@
-import ContentHooks from "../../hooks/contentHooks";
-import Date from "../Dashboard/Content_Sec/Date";
-import TaskList from "../Dashboard/Content_Sec/Task_list";
-import TodayTaskList from "./TodayTaskList";
+import ContentHooks from "../../../hooks/contentHooks";
+import Date from "../../Dashboard/Content_Sec/Date";
+import TodayTaskList from './TodayTaskList'
 import TodayTaskInp from "./TodayTskInp";
 
 export default function TodayContent({ hidNav }) {
@@ -15,11 +14,17 @@ export default function TodayContent({ hidNav }) {
       </div>
       <hr />
       <div className="pr-td-tsk">
-        <TodayTaskList />
+        <TodayTaskList
+          task={tasks} 
+          starToggle={handleStar}
+          taskComp={handleTskComp}
+          dltTask={handleDltTask} />
       </div>
       <hr />
       <div className="pr-td-inp">
-        <TodayTaskInp />
+        <TodayTaskInp
+          onAdd={addTaskLocally}
+        />
       </div>
       <button onClick={() => hidNav("Today")}>
         <i className="fa-solid fa-xmark"></i>

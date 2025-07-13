@@ -1,4 +1,12 @@
-export default function TodayTaskInp() {
+import TaskInput from "../../../hooks/Task-Inp-Hook";
+
+export default function TodayTaskInp({ onAdd }) {
+
+  const {
+    handleChange,
+    handleSubmit
+  } = TaskInput(onAdd);
+
   return (
     <div className="ch-td-inp">
       <input
@@ -6,6 +14,10 @@ export default function TodayTaskInp() {
         name="title"
         className="today-inp"
         placeholder="Enter your Task" 
+        onChange={handleChange}
+        onKeyDown={(e) => {
+          handleSubmit(e)
+        }}
         autoFocus
       />
       <img

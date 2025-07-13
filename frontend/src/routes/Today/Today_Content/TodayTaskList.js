@@ -1,19 +1,16 @@
-import ContentHooks from "../../hooks/contentHooks";
-
-export default function TodayTaskList() {
-  const { tasks, handleStar, handleTskComp, handleDltTask } = ContentHooks();
+export default function TodayTaskList({ task, starToggle, taskComp, dltTask }) {
 
   return (
     <div className="ch-td-tsk">
-      {tasks.length === 0 ? (
+      {task.length === 0 ? (
         <h2>No Tasks added yet 💤</h2>
       ) : (
         <ul>
-          {tasks.map((task, id) => (
+          {task.map((tsk, id) => (
             <li
               key={id}
               style={
-                task.isComp
+                tsk.isComp
                   ? {
                       border: "5px solid rgba(0, 255, 98, 0.75)",
                       boxShadow: "inset 0px 0px 20px 5px rgba(0, 255, 98, 0.8)",
@@ -24,7 +21,7 @@ export default function TodayTaskList() {
               <span
                 className="ttl"
                 style={
-                  task.isComp
+                  tsk.isComp
                     ? {
                         filter: "blur(3px)",
                       }
@@ -48,13 +45,13 @@ export default function TodayTaskList() {
                     fontSize: "1.7rem",
                   }}
                 >
-                  <b>{task.title}</b>
+                  <b>{tsk.title}</b>
                 </p>
               </span>
               <span
                 className="li-ic"
                 style={
-                task.isComp
+                tsk.isComp
                   ? {
                       filter: 'blur(3px)'
                     }
@@ -63,9 +60,9 @@ export default function TodayTaskList() {
               >
                 <i
                   style={{ fontSize: "2rem", cursor: 'pointer' }}
-                  onClick={() => handleStar(task._id)}
+                  onClick={() => starToggle(tsk._id)}
                   className={
-                    !task.starred ? "fa-regular fa-star" : "fa-solid fa-star"
+                    !tsk.starred ? "fa-regular fa-star" : "fa-solid fa-star"
                   }
                 ></i>
 
@@ -75,7 +72,7 @@ export default function TodayTaskList() {
                   src="https://img.icons8.com/doodle/48/checkmark.png"
                   alt="checkmark"
                   style={{ cursor: "pointer" }}
-                  onClick={() => handleTskComp(task._id)}
+                  onClick={() => taskComp(tsk._id)}
                 />
 
                 <img
@@ -84,7 +81,7 @@ export default function TodayTaskList() {
                   src="https://img.icons8.com/dusk/64/trash.png"
                   alt="filled-trash"
                   style={{ cursor: "pointer" }}
-                  onClick={() => handleDltTask(task._id)}
+                  onClick={() => dltTask(tsk._id)}
                 />
               </span>
             </li>

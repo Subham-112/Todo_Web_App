@@ -1,5 +1,5 @@
 import "../../Style/Today.css";
-import TodayContent from "./TodayContent";
+import TodayContent from "./Today_Content/TodayContent";
 import TodayNav from "./TodayNav";
 
 export default function Today({ hidNav }) {
