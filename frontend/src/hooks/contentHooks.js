@@ -4,7 +4,7 @@ export default function ContentHooks() {
   const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
-    (async (req, res) => {
+    (async () => {
       try {
         const token = localStorage.getItem("Jwt_Token")
         const res = await fetch("http://localhost:1000/task", {
