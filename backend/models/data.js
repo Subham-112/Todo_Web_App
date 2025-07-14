@@ -12,6 +12,9 @@ const dataSchema = new mongoose.Schema({
     isComp: {
         type: Boolean,
         default: false
+    },
+    userId: {
+        type: String
     }
 }, {
     timestamps: true

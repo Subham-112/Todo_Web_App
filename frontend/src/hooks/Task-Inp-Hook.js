@@ -14,10 +14,12 @@ export default function TaskInput(onAdd) {
         title: inpVal.trim(),
       };
       try {
+        const token = localStorage.getItem("Jwt_Token")
         const res = await fetch("http://localhost:1000/task", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            "Authorization": `Jwt_Token ${token}`
           },
           body: JSON.stringify(newTask),
         });
