@@ -131,9 +131,14 @@ app.post("/task", verifyUserSTask, async (req, res) => {
   }
 });
 
-app.get("/task", async (req, res) => {
+app.get("/task", verifyToken, async (req, res) => {
   try {
-    const tasks = await Task.find();
+    // const token = req.headers.authorization?.split(' ')[1];
+    // if(!token) return res.status(401).json({ message: "Access denied: No token provided" });
+    // const decoded = jwt.verify(token, process.env.JWT_SECRET);
+
+    const tasks = await Task.find({ userId: req.user.id });
+
     res.status(200).json({
       message: "Tasks fetched successfully",
       success: true,
