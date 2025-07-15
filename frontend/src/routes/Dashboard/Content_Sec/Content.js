@@ -1,7 +1,7 @@
 import ContentHooks from "../../../hooks/contentHooks";
 import Buttons from "./Button";
-import Date from "./Date";
-import TaskList from "./Task_list";
+import ContentNav from "./Cont-nav";
+import ContentNote from "./Cont-Note";
 import "../../../Style/Dashboard/Content/Content.css";
 
 export default function DashboardContent() {
@@ -16,16 +16,11 @@ export default function DashboardContent() {
   return (
     <div id="content">
       <div className="sec_i con">
-        <Date task={tasks} />
+        <ContentNav />
       </div>
       <hr />
       <div className="sec_ii con">
-        <TaskList
-          task={tasks}
-          starToggle={handleStar}
-          isTskComp={handleTskComp}
-          deleteOpr={handleDltTask}
-        />
+        <ContentNote />
       </div>
       <hr />
       <div className="sec_iii con">

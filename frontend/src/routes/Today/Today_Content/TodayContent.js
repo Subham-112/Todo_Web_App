@@ -1,5 +1,5 @@
 import ContentHooks from "../../../hooks/contentHooks";
-import Date from "../../Dashboard/Content_Sec/Date";
+// import Date from "../../Dashboard/Content_Sec/Date";
 import TodayTaskList from './TodayTaskList'
 import TodayTaskInp from "./TodayTskInp";
 
@@ -10,7 +10,7 @@ export default function TodayContent({ hidNav }) {
   return (
     <div className="today-cont">
       <div className="pr-td-date">
-        <Date task={tasks} />
+        {/* <Date task={tasks} /> */}
       </div>
       <hr />
       <div className="pr-td-tsk">

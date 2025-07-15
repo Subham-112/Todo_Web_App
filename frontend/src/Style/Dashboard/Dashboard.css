@@ -1,7 +1,6 @@
 #das-box {
   height: 100dvh;
-  display: grid;
-  grid-template-columns: 25% 75%;
+  display: flex;
 }
 
 .nav-user {
@@ -28,13 +27,18 @@
 }
 
 .das-nav {
+  height: 100dvh;
+  width: 25%;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-left: 1.2rem;
   animation: comeUp 1s ease-in-out forwards;
 }
 
 .das-cont {
+  height: 100dvh;
+  width: 75%;
   display: flex;
   justify-content: center;
   align-items: center;

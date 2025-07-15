@@ -1,34 +1,39 @@
 #nav {
-    height: 97%;
-    width: 95%;
-    border: 3px solid rgba(255, 255, 255, 0.545);
-    border-radius: 20px;
-    background-color: rgba(255, 255, 255, 0.1);
-    outline: none;
-    animation: clipReveal 1.5s ease-in-out forwards;
+  height: 95%;
+  width: 95%;
+  border: 1px solid rgba(255, 255, 255, 0.545);
+  border-radius: 20px;
+  background-color: rgba(139, 139, 139, 0.2);
+  /* background-color: #F0F9FF;background-image: 
+                radial-gradient(circle at 5% 10%, #E0F2FE 4%, transparent 0),radial-gradient(circle at 95% 20%, #D1FAE5 5%, transparent 0),radial-gradient(circle at 85% 90%, #FEF3C7 3%, transparent 0),radial-gradient(circle at 15% 85%, #FCE7F3 6%, transparent 0),radial-gradient(circle at 50% 50%, #F5F3FF 5%, transparent 0);background-size: 150px 150px; */
+  /* box-shadow: 0px 8px 20px black; */
+  outline: none;
+  animation: clipReveal 1.5s ease-in-out forwards;
 }
 
 @keyframes clipReveal {
   0% {
-    clip-path: inset(0 0 100% 0);
+    transform: translateY(20px);
+    /* clip-path: inset(0 0 100% 0); */
     opacity: 0;
   }
   100% {
-    clip-path: inset(0 0 0 0);
+    transform: translateY(0px);
+    /* clip-path: inset(0 0 0 0); */
     opacity: 1;
   }
 }
 
 .hide-nav {
-    display: none;
+  display: none;
 }
 
 .cls-nav {
-    animation: close 0.3s ease forwards;
+  animation: close 0.3s ease forwards;
 }
 
 .opn-nav {
-  animation: open  0.3s ease forwards;
+  animation: open 0.3s ease forwards;
 }
 
 @keyframes close {
@@ -39,100 +44,106 @@
 }
 
 @keyframes open {
-  from { transform: translateX(-1.5rem); opacity: 0; }
-  to   { transform: translateX(0);        opacity: 1; }
+  from {
+    transform: translateX(-1.5rem);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 .opn-nav {
-    display: none;
+  display: none;
 }
 
 .dsh-lg {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px 0;
-    margin-left: -15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  margin-left: -15px;
 }
 
 .lo {
-    width: 80%;
-    border: 3px solid rgb(255, 255, 255);
-    border-radius: 50px;
-    background-color: rgb(255, 255, 255);
-    margin: 0 auto;
-    margin-bottom: 20px;
+  width: 80%;
+  border: 3px solid rgb(255, 255, 255);
+  border-radius: 50px;
+  background-color: rgb(255, 255, 255);
+  margin: 0 auto;
+  margin-bottom: 20px;
 }
 
 .nv {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .nv ul {
-    margin: 0;
+  margin: 0;
 }
 
 .nv ul li {
-    list-style: none;
-    margin-bottom: 10px;
-    animation: revealX 1.5s ease-in-out 0.3s forwards;
+  list-style: none;
+  margin-bottom: 10px;
+  animation: revealX 1.5s ease-in-out 0.3s forwards;
 }
 
 @keyframes revealX {
-    0% {
-        clip-path: inset(0 100% 0 0);
-        opacity: 0;
-    }
-    100% {
-        clip-path: inset(0 0 0 0);
-        opacity: 1;
-    }
+  0% {
+    clip-path: inset(0 100% 0 0);
+    opacity: 0;
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
 }
 
 .nv ul .oth {
-    width: 160%;
-    border: 3px solid rgb(255, 255, 255);
-    border-radius: 50px;
-    margin: 20px 0 10px 0;
+  width: 160%;
+  border: 3px solid rgb(255, 255, 255);
+  border-radius: 50px;
+  margin: 20px 0 10px 0;
 }
 
 .sd-btn {
-    border: none;
-    font-size: 1.25rem;
-    background-color: transparent;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.7rem;
-    padding-left: 0.5rem;
-    margin-left: 0.7rem;
-    cursor: pointer;
+  border: none;
+  font-size: 1.25rem;
+  background-color: transparent;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.7rem;
+  padding-left: 0.5rem;
+  margin-left: 0.7rem;
+  cursor: pointer;
 }
 
 .my-ac {
-    /* width: 185px; */
-    border: none;
-    font-size: 1.25rem;
-    background-color: transparent;
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-left: 0.5rem;
-    margin-left: 0.5rem;
-    cursor: pointer;
+  /* width: 185px; */
+  border: none;
+  font-size: 1.25rem;
+  background-color: transparent;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 0.5rem;
+  margin-left: 0.5rem;
+  cursor: pointer;
 }
 
 .my-ac img {
-    /* margin-left: -18px; */
-    margin-right: 12px;
+  /* margin-left: -18px; */
+  margin-right: 12px;
 }
 
 .my-ac p {
-    font-size: large;
-    margin: 0;
-    /* margin-left: 20px; */
+  font-size: large;
+  margin: 0;
+  /* margin-left: 20px; */
 }

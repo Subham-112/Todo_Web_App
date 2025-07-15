@@ -1,70 +1,60 @@
 #content {
-    height: 97%;
-    width: 98%;
-    border: 3px solid rgba(255, 255, 255, 0.545);
-    border-radius: 20px;
-    background-color: rgba(255, 255, 255, 0.1);
-    display: flex;
-    flex-direction: column;
+  height: 95%;
+  width: 95%;
+  border: 1px solid rgba(255, 255, 255, 0.545);
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.2);
+  /* background-color: #F0F9FF;background-image: 
+                radial-gradient(circle at 5% 10%, #E0F2FE 4%, transparent 0),radial-gradient(circle at 95% 20%, #D1FAE5 5%, transparent 0),radial-gradient(circle at 85% 90%, #FEF3C7 3%, transparent 0),radial-gradient(circle at 15% 85%, #FCE7F3 6%, transparent 0),radial-gradient(circle at 50% 50%, #F5F3FF 5%, transparent 0);background-size: 150px 150px; */
+  /* box-shadow: 0px 0px 20px black; */
+  display: grid;
+  grid-template-rows: 15% 0 70% 0 15%;
 }
 
 hr {
-    width: 93%;
-    border: 3px solid rgb(255, 255, 255);
-    margin: 0 auto;
+  width: 93%;
+  border: 3px solid rgb(255, 255, 255);
+  margin: 0 auto;
 }
 
 .con {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .sec_i {
-    /* border: 2px solid white; */
-    height: 15%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .sec_i span {
-    /* border: 2px solid white; */
-    height: 80%;
-    width: 93%;
-    display: flex;
-    align-items: center;
-    margin-top: 10px;
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
 }
 
 .sec_ii {
-    /* border: 2px solid white; */
-    height: 70%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .sec_ii div {
-    height: 480px;
-    width: 93%;
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-    overflow: auto;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  overflow: auto;
 }
 
 .sec_iii {
-    /* border: 2px solid white; */
-    height: 15%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .sec_iii .btn-cont {
-    height: 90%;
-    width: 93%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

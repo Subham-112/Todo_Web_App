@@ -1,0 +1,7 @@
+#Cont-nav button {
+    transition: 0.2s ease;
+}
+
+#Cont-nav button:hover {
+    box-shadow: 0px 0px 10px #00ffd9ff;
+}

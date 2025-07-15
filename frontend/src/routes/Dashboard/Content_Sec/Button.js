@@ -12,10 +12,16 @@ export default function Buttons({ onAdd }) {
 
   return (
     <div className="btn-cont">
-      {!btn ? (
           <button 
             className='al-bt'
-            onClick={() => toggleBtn()}>
+            style={{
+              border: '3px solid #00ffd9ff',
+              backgroundColor: 'rgba(0, 0, 0, 0.5)',
+              color: '#00ffd9ff',
+              fontSize: '1.1rem',
+              fontWeight: '600'
+            }}
+          >
             <img
               width="40"
               height="40"
@@ -24,18 +30,6 @@ export default function Buttons({ onAdd }) {
             />
             Add Task
           </button>
-      ) : (
-        <input 
-          name="title"
-          type="text"
-          className="ad-tsk-inp" 
-          placeholder="Enter Your Task"
-          onChange={handleChange}
-          onKeyDown={(e) => {
-            handleSubmit(e)
-          }}
-          autoFocus />
-      )}
     </div>
   );
 }
