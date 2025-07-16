@@ -17,13 +17,6 @@ export default function Dashboard() {
     setIsHideNav((prev) => (
       { ...prev, [sectionName]: !prev[sectionName] }
     ));
-    // if (isHideNav === true) {
-    //   setIsHideNav((prev) => (
-    //     { ...prev, [innerText]: false }
-    //   ));
-    // }
-
-  // console.log(innerText)
   }
 
   function cntrNavAnime() {
@@ -50,7 +43,7 @@ export default function Dashboard() {
         <SideNav hidNav={handleHideNav} theNavAnimeFunc={cntrNavAnime} navAnimeVal={navAnime} />
       </div>
       <div className="das-cont">
-        <DashboardContent />
+        <DashboardContent hidNav={handleHideNav} />
       </div>
     </div>
   );

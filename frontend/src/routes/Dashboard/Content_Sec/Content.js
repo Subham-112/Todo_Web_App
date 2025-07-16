@@ -4,7 +4,7 @@ import ContentNav from "./Cont-nav";
 import ContentNote from "./Cont-Note";
 import "../../../Style/Dashboard/Content/Content.css";
 
-export default function DashboardContent() {
+export default function DashboardContent({ hidNav }) {
   const { 
     tasks,
     addTaskLocally,
@@ -24,7 +24,7 @@ export default function DashboardContent() {
       </div>
       <hr />
       <div className="sec_iii con">
-        <Buttons onAdd={addTaskLocally} />
+        <Buttons onAdd={addTaskLocally} hidNav={hidNav} />
       </div>
     </div>
   );

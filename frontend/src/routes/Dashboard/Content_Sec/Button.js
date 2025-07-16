@@ -1,7 +1,7 @@
 import TaskInput from "../../../hooks/Task-Inp-Hook";
 import "../../../Style/Dashboard/Content/Button.css";
 
-export default function Buttons({ onAdd }) {
+export default function Buttons({ onAdd, hidNav }) {
 
   const {
     btn,
@@ -13,6 +13,7 @@ export default function Buttons({ onAdd }) {
   return (
     <div className="btn-cont">
           <button 
+            onClick={() => hidNav('Today')}
             className='al-bt'
             style={{
               border: '3px solid #00ffd9ff',
