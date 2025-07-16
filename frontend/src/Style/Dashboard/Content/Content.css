@@ -4,9 +4,6 @@
   border: 1px solid rgba(255, 255, 255, 0.545);
   border-radius: 20px;
   background-color: rgba(255, 255, 255, 0.2);
-  /* background-color: #F0F9FF;background-image: 
-                radial-gradient(circle at 5% 10%, #E0F2FE 4%, transparent 0),radial-gradient(circle at 95% 20%, #D1FAE5 5%, transparent 0),radial-gradient(circle at 85% 90%, #FEF3C7 3%, transparent 0),radial-gradient(circle at 15% 85%, #FCE7F3 6%, transparent 0),radial-gradient(circle at 50% 50%, #F5F3FF 5%, transparent 0);background-size: 150px 150px; */
-  /* box-shadow: 0px 0px 20px black; */
   display: grid;
   grid-template-rows: 15% 0 70% 0 15%;
 }

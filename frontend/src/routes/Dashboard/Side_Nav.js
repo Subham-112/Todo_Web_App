@@ -120,7 +120,9 @@ export default function DashboardNav({ hidNav, navAnimeVal, theNavAnimeFunc }) {
               Reading
             </button>
           </li>
-          <hr className="oth" style={{ width: "185%", margin: "20px 0" }} />
+          <hr className="oth" 
+            style={{ width: "160%" }} 
+          />
         </ul>
         <ul>
           <li>
@@ -135,7 +137,7 @@ export default function DashboardNav({ hidNav, navAnimeVal, theNavAnimeFunc }) {
             </button>
           </li>
           <li>
-            <button className="my-ac" onClick={() => hidNav("Account")}>
+            <button className="sd-btn" onClick={() => hidNav("Account")}>
               <img
                 width="35"
                 height="35"

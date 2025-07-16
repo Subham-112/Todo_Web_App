@@ -3,10 +3,7 @@
   width: 95%;
   border: 1px solid rgba(255, 255, 255, 0.545);
   border-radius: 20px;
-  background-color: rgba(139, 139, 139, 0.2);
-  /* background-color: #F0F9FF;background-image: 
-                radial-gradient(circle at 5% 10%, #E0F2FE 4%, transparent 0),radial-gradient(circle at 95% 20%, #D1FAE5 5%, transparent 0),radial-gradient(circle at 85% 90%, #FEF3C7 3%, transparent 0),radial-gradient(circle at 15% 85%, #FCE7F3 6%, transparent 0),radial-gradient(circle at 50% 50%, #F5F3FF 5%, transparent 0);background-size: 150px 150px; */
-  /* box-shadow: 0px 8px 20px black; */
+  background-color: rgba(255, 255, 255, 0.2);
   outline: none;
   animation: clipReveal 1.5s ease-in-out forwards;
 }
@@ -62,8 +59,21 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 20px 0;
+  gap: 0.3rem;
+  margin: 15px 0;
+  margin-top: 0.9rem;
   margin-left: -15px;
+}
+
+.dsh-lg h1 {
+  font-weight: bold;
+  color: #00ffd9ff;
+  text-shadow: 0px 0px 15px #00ffd9ff;
+  margin-top: 0.5rem;
+}
+
+.dsh-lg img {
+  filter: drop-shadow(3px 3px 5px rgba(0, 255, 217, 0.338));
 }
 
 .lo {
@@ -72,7 +82,7 @@
   border-radius: 50px;
   background-color: rgb(255, 255, 255);
   margin: 0 auto;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .nv {
@@ -87,7 +97,7 @@
 
 .nv ul li {
   list-style: none;
-  margin-bottom: 10px;
+  margin-bottom: 3px;
   animation: revealX 1.5s ease-in-out 0.3s forwards;
 }
 
@@ -103,47 +113,34 @@
 }
 
 .nv ul .oth {
-  width: 160%;
+  width: 145%;
   border: 3px solid rgb(255, 255, 255);
   border-radius: 50px;
-  margin: 20px 0 10px 0;
+  margin: 15px 0 10px 0;
 }
 
 .sd-btn {
   border: none;
+  border-radius: 10px;
   font-size: 1.25rem;
+  font-weight: 600;
   background-color: transparent;
+  text-shadow: 0px 0px 15px rgba(0, 0, 0, 0.715);
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 0.7rem;
-  padding-left: 0.5rem;
+  padding: 0.35rem 1rem;
   margin-left: 0.7rem;
   cursor: pointer;
 }
 
-.my-ac {
-  /* width: 185px; */
-  border: none;
-  font-size: 1.25rem;
-  background-color: transparent;
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-left: 0.5rem;
-  margin-left: 0.5rem;
-  cursor: pointer;
+.sd-btn img {
+  filter: drop-shadow(3px 3px 5px rgba(0, 0, 0, 0.715));
 }
 
-.my-ac img {
-  /* margin-left: -18px; */
-  margin-right: 12px;
-}
-
-.my-ac p {
-  font-size: large;
-  margin: 0;
-  /* margin-left: 20px; */
+.sd-btn:hover {
+  background-color: rgba(0, 0, 0, 0.207);
+  box-shadow: inset 5px 5px 10px black, inset -1px -1px 10px #00ffd9ff;
 }
