@@ -13,6 +13,7 @@ const {
   verifyToken,
 } = require("./middlewares/authValidation");
 const verifyUserSTask = require("./middlewares/varifyUser'sTask");
+const { errorMsg } = require("../frontend/src/utils");
 
 const app = Express();
 app.use(cors());
@@ -112,10 +113,13 @@ app.post("/login", loginValidation, async (req, res) => {
 });
 
 app.post("/task", verifyUserSTask, async (req, res) => {
-  const { title, starred, isComp } = req.body;
-
+  const { title, starred, isComp, date } = req.body;
+  if(date === null) {
+      console.error("Date is note define")
+    }
   try {
-    const newTask = new Task({ title, starred, isComp, userId: req.user.id });
+    const newTask = new Task({ title, starred, isComp, userId: req.user.id, date });
+    
     await newTask.save();
     res.status(201).json({
       message: "New Task added successfully",
@@ -133,12 +137,7 @@ app.post("/task", verifyUserSTask, async (req, res) => {
 
 app.get("/task", verifyToken, async (req, res) => {
   try {
-    // const token = req.headers.authorization?.split(' ')[1];
-    // if(!token) return res.status(401).json({ message: "Access denied: No token provided" });
-    // const decoded = jwt.verify(token, process.env.JWT_SECRET);
-
     const tasks = await Task.find({ userId: req.user.id });
-
     res.status(200).json({
       message: "Tasks fetched successfully",
       success: true,

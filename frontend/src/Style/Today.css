@@ -67,10 +67,9 @@
   width: 95%;
   border: 4px solid rgba(255, 255, 0, 0.6);
   border-radius: 15px;
-  box-shadow: 0px 0px 20px 2px rgba(255, 255, 0, 0.7),
-    inset 0px 0px 30px 10px rgba(255, 255, 0, 0.5);
+  box-shadow: inset 0px 0px 30px 10px rgba(255, 255, 0, 0.5);
   font-size: 5rem;
-  background-color: rgba(0, 0, 0, 0.15);
+  background-color: rgba(0, 0, 0, 0.3);
   outline: none;
   display: flex;
   flex-direction: column;
@@ -103,10 +102,9 @@
   height: 97%;
   width: 95%;
   border: 4px solid rgba(255, 255, 0, 0.6);
-  box-shadow: 0px 0px 20px 2px rgba(255, 255, 0, 0.7),
-    inset 0px 0px 30px 10px rgba(255, 255, 0, 0.5);
+  box-shadow: inset 0px 0px 30px 10px rgba(255, 255, 0, 0.5);
   border-radius: 20px;
-  background-color: rgba(0, 0, 0, 0.15);
+  background-color: rgba(0, 0, 0, 0.3);
   outline: none;
   display: flex;
   flex-direction: column;
@@ -180,22 +178,13 @@
   height: 97%;
   width: 97%;
   border: 4px solid rgba(255, 255, 0, 0.6);
-  box-shadow: 0px 0px 20px 2px rgba(255, 255, 0, 0.7),
-    inset 0px 0px 30px 10px rgba(255, 255, 0, 0.5);
+  box-shadow: inset 0px 0px 30px 10px rgba(255, 255, 0, 0.5);
   border-radius: 20px;
-  background-color: rgba(0, 0, 0, 0.15);
+  background-color: rgba(0, 0, 0, 0.3);
   outline: none;
   position: relative;
   display: grid;
-  grid-template-rows: 15% 0 70% 0 15%;
-}
-
-.today-cont .pr-td-date {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding-right: 1rem;
+  grid-template-rows: 85% 0 15%;
 }
 
 .today-cont .pr-td-tsk {
@@ -205,20 +194,66 @@
 }
 
 .pr-td-tsk .ch-td-tsk {
-  width: 90%;
-  height: 90%;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 15% 0 85%;
+}
+
+.ch-td-tsk .date {
+  /* border: 2px solid white; */
+  width: fit-content;
   display: flex;
-  flex-direction: column;
+  justify-content: flex-start;
+  align-self: flex-start;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 1.5rem;
+  margin-left: 5rem;
+}
+
+.ch-td-tsk .date .custom-datepicker {
+  width: 40px;
+  height: 30px;
+  transform: scale(1.5);
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
 
-.ch-td-tsk ul {
-  width: 100%;
+.ch-td-tsk .date .custom-datepicker .ant-picker-input {
+  font-size: 1.1rem;
+  margin-right: 0.6rem;
+}
+
+.ch-td-tsk .date span p {
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.ch-td-tsk .date img {
+  filter: drop-shadow(0px 0px 10px black);
+}
+
+.ch-td-tsk .al-tsks {
+  /* border: 2px solid white; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.8rem;
+}
+
+.al-tsks ul {
+  /* border: 2px solid white; */
+  width: 90%;
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
+  margin: 0;
+  padding: 1.5rem 0;
 }
 
 .ch-td-tsk li {
@@ -231,7 +266,6 @@
   justify-content: space-between;
   align-items: center;
   padding: 0.1rem 2rem;
-  margin-left: -15px;
 }
 
 .ch-td-tsk li span {
@@ -268,6 +302,36 @@
   gap: 1rem;
 }
 
+.ch-td-inp .date {
+  height: 8%;
+  width: 100%;
+  position: absolute;
+  top: 1.3rem;
+  display: flex;
+  align-items: center;
+  padding: 0 3rem;
+}
+
+.ch-td-inp .date .custom-datepicker {
+  width: 40px;
+  height: 30px;
+  transform: scale(1.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ch-td-inp .date .custom-datepicker .ant-picker-input {
+  font-size: 1.1rem;
+  margin-right: 0.6rem;
+}
+
+.ch-td-inp .date p {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-right: 2rem;
+}
+
 .pr-td-inp .today-inp {
   height: 60px;
   width: 80%;
@@ -297,14 +361,14 @@
   color: rgb(0, 0, 0);
 }
 
-.today-cont button {
+.today-cont #td-btn {
   border: none;
   font-size: 3.3rem;
   color: white;
   background-color: transparent;
+  position: absolute;
   right: 2rem;
   top: 1rem;
-  position: absolute;
 }
 
 .today-cont button:hover {

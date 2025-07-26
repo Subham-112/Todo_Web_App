@@ -1,25 +1,47 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function TaskInput(onAdd) {
   let [btn, setbtn] = useState(false);
-  let [inpVal, setInpVal] = useState("");
+  let [inpVal, setInpVal] = useState({
+    title: null,
+    date: ''
+  });
 
-  function handleChange(e) {
-    setInpVal(e.target.value);
+  const dateRef = useRef(null)
+
+  useEffect(() => {
+    if(inpVal.date) {
+      console.log(inpVal.date)
+    }
+  }, [inpVal.date]);
+
+  function handleTask(e) {
+    setInpVal(prev => ({ ...prev, title: e.target.value}));
+  }
+
+  function getDateForB(date) {
+    dateRef.current = date;
+    setInpVal(prev => ({ ...prev, date: date}));
   }
 
   const handleSubmit = async (e) => {
-    if (e.key === "Enter" && inpVal.trim() !== "") {
+    if (e.key === "Enter" && inpVal.title.trim() !== "") {
+
+      const currentDate = inpVal.date;
+      console.log(currentDate)
+
       const newTask = {
-        title: inpVal.trim(),
+        title: inpVal.title.trim(),
+        date: currentDate
       };
+      console.log(newTask);
       try {
-        const token = localStorage.getItem("Jwt_Token")
+        const token = localStorage.getItem("Jwt_Token");
         const res = await fetch("http://localhost:1000/task", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            "Authorization": `Jwt_Token ${token}`
+            Authorization: `Jwt_Token ${token}`,
           },
           body: JSON.stringify(newTask),
         });
@@ -39,7 +61,7 @@ export default function TaskInput(onAdd) {
       setbtn(false);
     }
   };
-  
+
   function toggleBtn() {
     setbtn(true);
   }
@@ -47,8 +69,9 @@ export default function TaskInput(onAdd) {
   return {
     btn,
     inpVal,
-    handleChange,
+    handleTask,
+    getDateForB,
     handleSubmit,
-    toggleBtn
+    toggleBtn,
   };
 }

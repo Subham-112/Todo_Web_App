@@ -15,9 +15,11 @@ const dataSchema = new mongoose.Schema({
     },
     userId: {
         type: String
+    },
+    date: {
+        type: String
     }
-}, {
-    timestamps: true
-});
+}
+);
 
 module.exports = mongoose.model('Tasks', dataSchema);
