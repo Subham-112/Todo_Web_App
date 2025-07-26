@@ -84,7 +84,7 @@ export default function TodayContent({ hidNav }) {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          starred: !data.find((task) => task._id === id).starred,
+          starred: !data.find((task) => task._id === id).starred
         }),
       });
 
