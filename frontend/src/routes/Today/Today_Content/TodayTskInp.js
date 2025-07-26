@@ -1,14 +1,17 @@
 import { DatePicker } from "antd";
-import { useState } from "react";
-import { errorMsg, successMsg } from "../../../utils";
-import TaskInput from "../../../hooks/Task-Inp-Hook";
+import { useEffect, useState } from "react";
 
-export default function TodayTaskInp({ onAdd }) {
+export default function TodayTaskInp({ getDate, getTask, handleInfoSubmit }) {
   const [task, setTask] = useState("");
   const [date, setDate] = useState("");
   const [clearDate, setClearDate] = useState(false);
   const [btn, setBtn] = useState(true);
   // const { handleTask, handleSubmit } = TaskInput(onAdd);
+
+  useEffect(() => {
+    getDate(date);
+    getTask(task)
+  }, [date, task]);
 
   const handleChange = (date, dateStr) => {
     setDate(dateStr);
@@ -24,45 +27,6 @@ export default function TodayTaskInp({ onAdd }) {
     setClearDate(!clearDate);
     setDate("");
     setBtn(true);
-  };
-
-  const handleInfoSubmit = async (e) => {
-    if (e.key === "Enter") {
-      if (date === "") {
-        errorMsg("Enter your Date");
-        return;
-      } else if (task.trim() === "") {
-        errorMsg("Enter your Task");
-        return;
-      } else {
-        const info = {
-          title: task,
-          date: date,
-        };
-        try {
-          const token = localStorage.getItem("Jwt_Token");
-          const response = await fetch("http://localhost:1000/task", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Jwt_Token ${token}`,
-            },
-            body: JSON.stringify(info),
-          });
-
-          const data = await response.json();
-          console.log("Response from backend", data);
-          setTask("");
-
-          const { message, success, task } = data
-          if(success) {
-            successMsg(message)
-          }
-        } catch (err) {
-          console.error({ err: err.message });
-        }
-      }
-    }
   };
 
   return (

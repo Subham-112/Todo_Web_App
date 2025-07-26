@@ -1,44 +1,16 @@
-import { DatePicker } from "antd";
-import { useState } from "react";
-import TaskInput from "../../../hooks/Task-Inp-Hook";
-
-export default function TodayTaskList({ task, starToggle, taskComp, dltTask }) {
-  const [date, setDate] = useState(null);
-  const [btn, setBtn] = useState(false);
-  const [datePicker, setDatePicker] = useState(false);
-
-  const { getDateForB } = TaskInput()
-
-  const handleChange = (date, dateStr) => {
-    console.log(dateStr);
-    setDate(dateStr);
-    setDatePicker(!datePicker)
-  };
-
-  const handleTick = () => {
-    setBtn(!btn);
-    getDateForB(date);
-  };
-
-  const handleWrong = () => {
-    setDatePicker(!datePicker);
-    setDate(null)
-    setBtn(!btn)
-  };
-
+export default function TodayTaskList({ data, isTaskComp, dltTask, starToggle }) {
   return (
     <div className="ch-td-tsk">
       <div style={{
-        height: '100%',
-        // border: '2px solid yellow'
+        height: '100%'
       }}></div>
       <hr />
       <div className="al-tsks">
-        {task.length === 0 ? (
+        {data.length === 0 ? (
           <h2>No Tasks added yet 💤</h2>
         ) : (
           <ul>
-            {task.map((tsk, id) => (
+            {data.map((tsk, id) => (
               <li
                 key={id}
                 style={
@@ -105,7 +77,7 @@ export default function TodayTaskList({ task, starToggle, taskComp, dltTask }) {
                     src="https://img.icons8.com/doodle/48/checkmark.png"
                     alt="checkmark"
                     style={{ cursor: "pointer" }}
-                    onClick={() => taskComp(tsk._id)}
+                    onClick={() => isTaskComp(tsk._id)}
                   />
 
                   <img
