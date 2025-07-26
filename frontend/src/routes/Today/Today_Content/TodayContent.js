@@ -8,22 +8,24 @@ export default function TodayContent({ hidNav }) {
   const [date, setDate] = useState("");
   const [data, setData] = useState([]);
 
+  const fetchData = async () => {
+    try {
+      const token = localStorage.getItem("Jwt_Token");
+      const res = await fetch("http://localhost:1000/task", {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      const backendData = await res.json();
+      setData(backendData.tasks);
+    } catch (err) {
+      console.error("Failed to load tasks:", err);
+    }
+  };
+
   useEffect(() => {
-    (async () => {
-      try {
-        const token = localStorage.getItem("Jwt_Token");
-        const res = await fetch("http://localhost:1000/task", {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-        const backendData = await res.json();
-        setData(backendData.tasks);
-      } catch (err) {
-        console.error("Failed to load tasks:", err);
-      }
-    })();
+    fetchData();
   }, []);
 
   function getDate(data) {
@@ -61,7 +63,7 @@ export default function TodayContent({ hidNav }) {
           const data = await response.json();
           console.log("Response from backend", data);
           setTask("");
-          setData(prev => [ ...prev, data.task ]);
+          fetchData();
 
           const { message, success } = data;
           if (success) {
@@ -82,19 +84,19 @@ export default function TodayContent({ hidNav }) {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          starred: !task.find((task) => task._id === id).starred,
+          starred: !data.find((task) => task._id === id).starred,
         }),
       });
 
-      const data = await res.json();
-      if (data.success) {
+      const backendData = await res.json();
+      if (backendData.success) {
         setData((prev) =>
           prev.map((task) =>
             task._id === id ? { ...task, starred: !task.starred } : task
           )
         );
       }
-      console.log("Star toggled successfully:", data);
+      console.log("Star toggled successfully:", backendData);
     } catch (err) {
       console.error("Error while toggling star:", err);
     }
@@ -108,19 +110,19 @@ export default function TodayContent({ hidNav }) {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          isComp: !task.find((task) => task._id === id).isComp,
+          isComp: !data.find((task) => task._id === id).isComp,
         }),
       });
 
-      const data = await res.json();
-      if (data.success) {
+      const backendData = await res.json();
+      if (backendData.success) {
         setData((prev) =>
           prev.map((task) =>
             task._id === id ? { ...task, isComp: !task.isComp } : task
           )
         );
       }
-      console.log("Task mark as complete", data);
+      console.log("Task mark as complete", backendData);
     } catch (err) {
       console.error("Error while mark as complete", err);
     }
@@ -154,6 +156,7 @@ export default function TodayContent({ hidNav }) {
       <hr />
       <div className="pr-td-inp">
         <TodayTaskInp
+          taskVal={task}
           getTask={getTask}
           getDate={getDate}
           handleInfoSubmit={handleInfoSubmit}

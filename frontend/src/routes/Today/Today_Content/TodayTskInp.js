@@ -1,7 +1,7 @@
 import { DatePicker } from "antd";
 import { useEffect, useState } from "react";
 
-export default function TodayTaskInp({ getDate, getTask, handleInfoSubmit }) {
+export default function TodayTaskInp({ taskVal, getDate, getTask, handleInfoSubmit }) {
   const [task, setTask] = useState("");
   const [date, setDate] = useState("");
   const [clearDate, setClearDate] = useState(false);
@@ -72,7 +72,7 @@ export default function TodayTaskInp({ getDate, getTask, handleInfoSubmit }) {
         name="title"
         className="today-inp"
         placeholder="Enter your Task"
-        value={task}
+        value={taskVal}
         onChange={(e) => setTask(e.target.value)}
         onKeyDown={(e) => {
           handleInfoSubmit(e);
