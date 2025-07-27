@@ -11,12 +11,10 @@
 @keyframes clipReveal {
   0% {
     transform: translateY(20px);
-    /* clip-path: inset(0 0 100% 0); */
     opacity: 0;
   }
   100% {
     transform: translateY(0px);
-    /* clip-path: inset(0 0 0 0); */
     opacity: 1;
   }
 }
