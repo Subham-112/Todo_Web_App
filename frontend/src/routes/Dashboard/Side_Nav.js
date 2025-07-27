@@ -17,17 +17,6 @@ export default function DashboardNav({ hidNav, navAnimeVal, theNavAnimeFunc }) {
       <nav className="nv">
         <ul>
           <li>
-            <button className="sd-btn" >
-              <img
-                width="35"
-                height="35"
-                src="https://img.icons8.com/external-others-phat-plus/64/external-business-business-blue-others-phat-plus-13.png"
-                alt="external-business-business-blue-others-phat-plus-13"
-              />
-              All Day
-            </button>
-          </li>
-          <li>
             <button className="sd-btn" onClick={(e) => hidNav("Today")}>
               <img
                 width="40"
@@ -59,6 +48,17 @@ export default function DashboardNav({ hidNav, navAnimeVal, theNavAnimeFunc }) {
                 alt="calendar-7"
               />
               Next 7 days
+            </button>
+          </li>
+          <li>
+            <button className="sd-btn" >
+              <img
+                width="35"
+                height="35"
+                src="https://img.icons8.com/external-others-phat-plus/64/external-business-business-blue-others-phat-plus-13.png"
+                alt="external-business-business-blue-others-phat-plus-13"
+              />
+              All Day
             </button>
           </li>
           <hr className="oth" />
