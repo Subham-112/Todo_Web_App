@@ -1,4 +1,4 @@
-export default function TodayNav() {
+export default function TodayNav({ hidNav }) {
   return (
     <div className="today-nav">
       <span className="tod-nav-lg">
@@ -17,7 +17,7 @@ export default function TodayNav() {
       <nav>
         <ul>
           <li>
-            <button>
+            <button onClick={() => hidNav("Important")}>
               <img
                 width="45"
                 height="45"

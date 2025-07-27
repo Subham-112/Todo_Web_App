@@ -114,12 +114,18 @@ app.post("/login", loginValidation, async (req, res) => {
 
 app.post("/task", verifyUserSTask, async (req, res) => {
   const { title, starred, isComp, date } = req.body;
-  if(date === null) {
-      console.error("Date is note define")
-    }
+  if (date === null) {
+    console.error("Date is note define");
+  }
   try {
-    const newTask = new Task({ title, starred, isComp, userId: req.user.id, date });
-    
+    const newTask = new Task({
+      title,
+      starred,
+      isComp,
+      userId: req.user.id,
+      date,
+    });
+
     await newTask.save();
     res.status(201).json({
       message: "New Task added successfully",
@@ -145,6 +151,20 @@ app.get("/task", verifyToken, async (req, res) => {
     });
   } catch (err) {
     res.status(500).json({ error: err.message });
+  }
+});
+
+app.get("/imp-tasks", async (req, res) => {
+  try {
+    const impTasks = await Task.find({ starred: true });
+
+    res.status(200).json({
+      message: "Important Task fetch successfully",
+      success: true,
+      task: impTasks
+    });
+  } catch (err) {
+    res.status(400).json({ error: err.message });
   }
 });
 

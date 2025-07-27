@@ -1,23 +1,36 @@
-export default function TodayTaskList({ data, isTaskComp, dltTask, starToggle }) {
+export default function Important({ impTask, hidNav, isTaskComp, dltTask }) {
   return (
-    <div className="ch-td-tsk">
-      <div style={{
-        height: '100%'
-      }}></div>
-      <hr />
-      <div className="al-tsks">
-        {data.length === 0 ? (
-          <h2>No Tasks added yet 💤</h2>
-        ) : (
-          <ul>
-            {data.map((tsk, id) => (
+    <div id="imp-cont">
+      <div className="imp-nav">
+        <img
+          width="65"
+          height="65"
+          src="https://img.icons8.com/plasticine/100/FA5252/army-star.png"
+          alt="army-star"
+        />
+        <p>Important Task</p>
+      </div>
+      <hr style={{ margin: "0 auto" }} />
+      <div className="imp-tsk-list">
+        <ul className="imp-list">
+          {impTask.length === 0 ? (
+            <p style={{
+              width: '100%',
+              fontSize: '1.8rem',
+              fontWeight: 'bold',
+              textAlign: 'center',
+              marginLeft: '-2rem'
+            }}>No Important Task added yet</p>
+          ) : (
+            impTask.map((task) => (
               <li
-                key={id}
+                key={task._id}
                 style={
-                  tsk.isComp
+                  task.isComp
                     ? {
                         border: "5px solid rgba(0, 255, 98, 0.75)",
-                        boxShadow: "inset 0px 0px 20px 5px rgba(0, 255, 98, 0.8)",
+                        boxShadow:
+                          "inset 0px 0px 20px 5px rgba(0, 255, 98, 0.8)",
                       }
                     : null
                 }
@@ -25,7 +38,7 @@ export default function TodayTaskList({ data, isTaskComp, dltTask, starToggle })
                 <span
                   className="ttl"
                   style={
-                    tsk.isComp
+                    task.isComp
                       ? {
                           filter: "blur(3px)",
                         }
@@ -35,6 +48,7 @@ export default function TodayTaskList({ data, isTaskComp, dltTask, starToggle })
                   <input
                     type="checkbox"
                     style={{
+                      outline: "none",
                       transform: "scale(1.8)",
                       marginTop: "2px",
                       border: "none",
@@ -46,31 +60,22 @@ export default function TodayTaskList({ data, isTaskComp, dltTask, starToggle })
                       margin: 0,
                       marginLeft: "10px",
                       marginTop: "-3px",
-                      fontSize: "1.7rem",
+                      fontSize: "1.8rem",
                     }}
                   >
-                    <b>{tsk.title}</b>
+                    <b>{task.title}</b>
                   </p>
                 </span>
                 <span
                   className="li-ic"
                   style={
-                    tsk.isComp
+                    task.isComp
                       ? {
                           filter: "blur(3px)",
                         }
                       : null
                   }
                 >
-                  <i
-                    style={{ fontSize: "2rem", cursor: "pointer" }}
-                    onClick={() => starToggle(tsk._id)}
-                    className={
-                      !tsk.starred ? "fa-regular fa-star" : "fa-solid fa-star"
-                    }
-                    title="Important Task"
-                  ></i>
-
                   <img
                     width="40"
                     height="40"
@@ -78,7 +83,7 @@ export default function TodayTaskList({ data, isTaskComp, dltTask, starToggle })
                     alt="checkmark"
                     title="Complete"
                     style={{ cursor: "pointer" }}
-                    onClick={() => isTaskComp(tsk._id)}
+                    onClick={() => isTaskComp(task._id)}
                   />
 
                   <img
@@ -88,13 +93,17 @@ export default function TodayTaskList({ data, isTaskComp, dltTask, starToggle })
                     alt="filled-trash"
                     title="Delete"
                     style={{ cursor: "pointer" }}
-                    onClick={() => dltTask(tsk._id)}
+                    onClick={() => dltTask(task._id)}
                   />
                 </span>
               </li>
-            ))}
-          </ul>
-        )}
+            ))
+          )}
+        </ul>
+      </div>
+      <hr style={{ margin: "0 auto" }} />
+      <div className="imp-btns">
+        <button onClick={() => hidNav("Important")}>Close</button>
       </div>
     </div>
   );

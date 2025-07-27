@@ -2,7 +2,7 @@ import "../../../Style/Dashboard/Content/Cont-nav.css";
 
 export default function WelcomeNote() {
   return (
-    <div className="w-100 h-100">
+    <div className="note w-100 h-100">
       <div
         style={{ width: "90%", margin: 0 }}
         className="d-flex flex-column align-items-center"
