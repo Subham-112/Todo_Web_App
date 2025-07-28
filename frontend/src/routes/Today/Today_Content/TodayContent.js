@@ -30,6 +30,7 @@ export default function TodayContent({ hidNav }) {
 
   function getDate(data) {
     setDate(data);
+    // console.log(data)
   }
 
   function getTask(task) {
