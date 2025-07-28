@@ -309,15 +309,12 @@
 }
 
 .ch-td-tsk .al-tsks {
-  /* border: 2px solid white; */
   display: flex;
   justify-content: center;
   align-items: center;
-  /* margin-top: 1.8rem; */
 }
 
 .al-tsks ul {
-  /* border: 2px solid white; */
   width: 90%;
   height: 90%;
   display: flex;
@@ -336,17 +333,14 @@
 }
 
 .al-tsks ul::-webkit-scrollbar-track {
-  /* background: #f0f0f0; */
   border-radius: 10px;
 }
 
-/* Thumb (the draggable part) */
 .al-tsks ul::-webkit-scrollbar-thumb {
   background: #cacaca; 
   border-radius: 10px;
 }
 
-/* Hover effect on the thumb */
 .al-tsks ul::-webkit-scrollbar-thumb:hover {
   background: #b3b3b3; 
 }
@@ -395,17 +389,77 @@
   gap: 1rem;
 }
 
-.ch-td-inp .date {
+.ch-td-inp .date-today {
   height: 8%;
   width: 100%;
   position: absolute;
   top: 1.3rem;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   padding: 0 3rem;
 }
 
-.ch-td-inp .date .custom-datepicker {
+.ch-td-inp .date-today .custom {
+  border: 4px solid yellow;
+  border-radius: 10px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: white;
+  background-color: rgba(255, 255, 0, 0.5);
+  box-shadow: inset 0px 0px 15px 3px yellow, 0px 0px 15px 3px yellow;
+  margin-right: 4rem;
+  padding: 0.4rem 0.7rem;
+  transition: 0.3s ease;
+}
+
+.ch-td-inp .date-today .custom:hover {
+  background-color: rgba(255, 255, 0, 0.262);
+  transform: scale(0.95);
+}
+
+.ch-td-inp .date-today p {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-right: 2rem;
+}
+
+.ch-td-inp .date-custom {
+  height: 8%;
+  width: 100%;
+  position: absolute;
+  top: 1.3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 3rem;
+}
+
+.date-custom .date {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ch-td-inp .date-custom .today-dt {
+  border: 4px solid yellow;
+  border-radius: 10px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: white;
+  background-color: rgba(255, 255, 0, 0.5);
+  box-shadow: inset 0px 0px 15px 3px yellow, 0px 0px 15px 3px yellow;
+  margin-right: 4rem;
+  padding: 0.4rem 0.7rem;
+  transition: 0.3s ease;
+}
+
+.ch-td-inp .date-custom .today-dt:hover {
+  background-color: rgba(255, 255, 0, 0.262);
+  transform: scale(0.95);
+}
+
+.ch-td-inp .date-custom .custom-datepicker {
   width: 40px;
   height: 30px;
   transform: scale(1.5);
@@ -414,12 +468,12 @@
   align-items: center;
 }
 
-.ch-td-inp .date .custom-datepicker .ant-picker-input {
+.ch-td-inp .date-custom .custom-datepicker .ant-picker-input {
   font-size: 1.1rem;
   margin-right: 0.6rem;
 }
 
-.ch-td-inp .date p {
+.ch-td-inp .date-custom p {
   font-size: 1.8rem;
   font-weight: bold;
   margin-right: 2rem;
@@ -464,6 +518,6 @@
   top: 1rem;
 }
 
-.today-cont button:hover {
+.today-cont #td-btn:hover {
   transform: scale(0.9);
 }
