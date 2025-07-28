@@ -90,7 +90,7 @@
 }
 
 .imp-list li .ttl {
-  width: 20%;
+  width: 80%;
   display: flex;
   justify-content: flex-start;
   gap: 0.5rem;
@@ -308,42 +308,6 @@
   grid-template-rows: 15% 0 85%;
 }
 
-.ch-td-tsk .date {
-  /* border: 2px solid white; */
-  width: fit-content;
-  display: flex;
-  justify-content: flex-start;
-  align-self: flex-start;
-  align-items: center;
-  gap: 2rem;
-  margin-top: 1.5rem;
-  margin-left: 5rem;
-}
-
-.ch-td-tsk .date .custom-datepicker {
-  width: 40px;
-  height: 30px;
-  transform: scale(1.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.ch-td-tsk .date .custom-datepicker .ant-picker-input {
-  font-size: 1.1rem;
-  margin-right: 0.6rem;
-}
-
-.ch-td-tsk .date span p {
-  font-size: 2rem;
-  font-weight: 600;
-  margin: 0;
-}
-
-.ch-td-tsk .date img {
-  filter: drop-shadow(0px 0px 10px black);
-}
-
 .ch-td-tsk .al-tsks {
   /* border: 2px solid white; */
   display: flex;
@@ -376,11 +340,8 @@
   padding: 0.1rem 2rem;
 }
 
-.ch-td-tsk li span {
-  width: 50%;
-}
-
 .ch-td-tsk li .ttl {
+  width: 80%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -388,6 +349,7 @@
 }
 
 .ch-td-tsk li .li-ic {
+  width: 20%;
   display: flex;
   justify-content: flex-end;
   align-items: center;
